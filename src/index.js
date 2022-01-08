@@ -14,7 +14,7 @@ const server = new ApolloServer({
     };
   },
 });
-const startApolloServer = async() => {
+const startApolloServer = async(server) => {
   const { url, port }  = await server.listen({port: process.env.PORT || 4000});
   console.log(`
     🚀  Server is running!
@@ -22,4 +22,4 @@ const startApolloServer = async() => {
     📭  Query at ${url}
   `);
 }
-startApolloServer(typeDefs, resolvers);
+startApolloServer(server);
